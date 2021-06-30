@@ -24,6 +24,14 @@ steps:
   displayName: Build Tarball
   condition: and(${{ parameters.condition }}, succeeded())
 
+- script: |
+    set -x
+
+    ./build.sh --run-smoke-test
+  workingDirectory: ${{ parameters.sourceFolder }}
+  displayName: Run smoke tests
+  condition: and(${{ parameters.condition }}, succeeded())
+
 - template: /src/SourceBuild/Arcade/eng/common/templates/steps/source-build-publish-logs.yml
   parameters:
     sourceFolder: ${{ parameters.sourceFolder }}

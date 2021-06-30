@@ -5,9 +5,9 @@ IFS=$'\n\t'
 usage() {
     echo "usage: $0 [options]"
     echo "options:"
-    echo "  --with-ref-packages <dir>          use the specified directory of reference packages"
     echo "  --with-packages <dir>              use the specified directory of previously-built packages"
     echo "  --with-sdk <dir>                   use the SDK in the specified directory for bootstrapping"
+    echo "  --run-smoke-test                   don't build; only run the smoke tests"
     echo "use -- to send the remaining arguments to MSBuild"
     echo ""
 }
