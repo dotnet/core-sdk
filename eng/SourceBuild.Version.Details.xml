@@ -37,6 +37,11 @@
       <Sha>e078bbadaf65628c313e97041973db52a84491ef</Sha>
       <SourceBuild RepoName="vstest" ManagedOnly="true" />
     </Dependency>
+    <Dependency Name="Microsoft.SourceBuild.Intermediate.roslyn-analyzers" Version="3.3.3-beta1.21356.1">
+      <Uri>https://github.com/dotnet/roslyn-analyzers</Uri>
+      <Sha>77c6f0725c26442023c8eee2b143b899cb3f4eb7</Sha>
+      <SourceBuild RepoName="roslyn-analyzers" ManagedOnly="true" />
+    </Dependency>
     <Dependency Name="Microsoft.Web.Xdt" Version="5.0.0-preview.21302.1">
       <Uri>https://github.com/dotnet/xdt</Uri>
       <Sha>6a46e7c886cdf499ba3433f665ab417be814135e</Sha>
