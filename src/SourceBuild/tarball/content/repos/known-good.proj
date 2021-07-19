@@ -45,7 +45,10 @@
         <RepositoryReference Include="msbuild" />
         <RepositoryReference Include="templating" />
 
-        <!-- Tier 4 -->
+        <!-- Tier 3 -->
+        <RepositoryReference Include="roslyn-analyzers" />
+
+        <!-- Tier 5 -->
         <RepositoryReference Include="fsharp" />
         <RepositoryReference Include="vstest" />
 

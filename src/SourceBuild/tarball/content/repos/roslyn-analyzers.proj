@@ -2,21 +2,7 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
-    <BuildCommandArgs>--restore --build --pack</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) --configuration $(Configuration)</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) -v $(LogVerbosity)</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) -bl</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) -warnaserror false</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) /p:TreatWarningsAsErrors=false</BuildCommandArgs>
-
-    <!-- Versioning args. -->
-    <BuildCommandArgs>$(BuildCommandArgs) /p:OfficialBuild=true</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) /p:DotNetPackageVersionPropsPath=$(PackageVersionPropsPath)</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) /p:DotNetBuildFromSource=true</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) /p:GitHubRepositoryName=roslyn-analyzers</BuildCommandArgs>
-    <BuildCommandArgs>$(BuildCommandArgs) /p:RepositoryUrl=git://github.com/dotnet/roslyn-analyzers</BuildCommandArgs>
-
-    <BuildCommand>$(ProjectDirectory)build$(ShellExtension) $(BuildCommandArgs)</BuildCommand>
+    <BuildCommand>$(StandardSourceBuildCommand) $(StandardSourceBuildArgs)</BuildCommand>
 
     <RepoApiImplemented>false</RepoApiImplemented>
     <DependencyVersionInputRepoApiImplemented>true</DependencyVersionInputRepoApiImplemented>
@@ -25,8 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <RepositoryReference Include="runtime" />
-    <RepositoryReference Include="roslyn" />
+    <!-- TODO:  Enable with https://github.com/dotnet/source-build/issues/2274
+    <RepositoryReference Include="runtime" /> -->
+    <!-- TODO:  Enable with https://github.com/dotnet/source-build/issues/2272 
+    <RepositoryReference Include="roslyn" /> -->
   </ItemGroup>
 
   <ItemGroup>
