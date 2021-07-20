@@ -1,0 +1,56 @@
+From a235579b23a9aaf3f30202a69e92b93f7c569107 Mon Sep 17 00:00:00 2001
+From: Chris Rummel <crummel@microsoft.com>
+Date: Tue, 20 Jul 2021 14:20:14 -0500
+Subject: [PATCH 2/2] Don't include desktop artifacts that don't exist in
+ source-build.
+
+---
+ .../Microsoft.Net.Compilers.Toolset.Package.csproj          | 4 ++--
+ .../Microsoft.Net.Compilers.Package.csproj                  | 6 +++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/NuGet/Microsoft.Net.Compilers.Toolset/Microsoft.Net.Compilers.Toolset.Package.csproj b/src/NuGet/Microsoft.Net.Compilers.Toolset/Microsoft.Net.Compilers.Toolset.Package.csproj
+index 9e646ebab5b..7b598978fd1 100644
+--- a/src/NuGet/Microsoft.Net.Compilers.Toolset/Microsoft.Net.Compilers.Toolset.Package.csproj
++++ b/src/NuGet/Microsoft.Net.Compilers.Toolset/Microsoft.Net.Compilers.Toolset.Package.csproj
+@@ -23,7 +23,7 @@
+     <!-- Remove NU5128 once https://github.com/NuGet/Home/issues/8583 is fixed -->
+     <NoWarn>$(NoWarn);NU5100;NU5128</NoWarn>
+ 
+-    <_DependsOn Condition="'$(TargetFramework)' == 'net472'">InitializeDesktopCompilerArtifacts</_DependsOn>
++    <_DependsOn Condition="'$(TargetFramework)' == 'net472' and '$(DotNetBuildFromSource)' != 'true'">InitializeDesktopCompilerArtifacts</_DependsOn>
+     <_DependsOn Condition="'$(TargetFramework)' == 'netcoreapp3.1'">InitializeCoreClrCompilerArtifacts</_DependsOn>
+   </PropertyGroup>
+ 
+@@ -57,6 +57,6 @@
+     </ItemGroup>
+   </Target>
+ 
+-  <Import Project="DesktopCompilerArtifacts.targets" Condition="'$(TargetFramework)' == 'net472'" />
++  <Import Project="DesktopCompilerArtifacts.targets" Condition="'$(TargetFramework)' == 'net472' and '$(DotNetBuildFromSource)' != 'true'" />
+   <Import Project="CoreClrCompilerArtifacts.targets" Condition="'$(TargetFramework)' == 'netcoreapp3.1'" />
+ </Project>
+diff --git a/src/NuGet/Microsoft.Net.Compilers/Microsoft.Net.Compilers.Package.csproj b/src/NuGet/Microsoft.Net.Compilers/Microsoft.Net.Compilers.Package.csproj
+index 05f74e26ce6..c33e557c249 100644
+--- a/src/NuGet/Microsoft.Net.Compilers/Microsoft.Net.Compilers.Package.csproj
++++ b/src/NuGet/Microsoft.Net.Compilers/Microsoft.Net.Compilers.Package.csproj
+@@ -31,13 +31,13 @@
+ 
+   <Target Name="_GetFilesToPackage" DependsOnTargets="InitializeDesktopCompilerArtifacts">
+     <ItemGroup>
+-      <_File Include="@(DesktopCompilerArtifact)" TargetDir="tools"/>
+-      <_File Include="@(DesktopCompilerResourceArtifact)" TargetDir="tools"/>
++      <_File Include="@(DesktopCompilerArtifact)" TargetDir="tools" Condition="'$(DotNetBuildFromSource)' != 'true'" />
++      <_File Include="@(DesktopCompilerResourceArtifact)" TargetDir="tools" Condition="'$(DotNetBuildFromSource)' != 'true'" />
+       <_File Include="$(MSBuildProjectDirectory)\build\**\*.*" TargetDir="build" />
+ 
+       <TfmSpecificPackageFile Include="@(_File)" PackagePath="%(_File.TargetDir)/%(_File.RecursiveDir)%(_File.FileName)%(_File.Extension)" />
+     </ItemGroup>
+   </Target>
+ 
+-  <Import Project="..\Microsoft.Net.Compilers.Toolset\DesktopCompilerArtifacts.targets"/>
++  <Import Project="..\Microsoft.Net.Compilers.Toolset\DesktopCompilerArtifacts.targets" />
+ </Project>
+-- 
+2.18.0
+

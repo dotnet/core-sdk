@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Dependencies>
   <ProductDependencies>
-    <Dependency Name="Microsoft.Build" Version="17.0.0-preview-21330-06" CoherentParentDependency="Microsoft.NET.Sdk">
-      <Uri>https://github.com/dotnet/msbuild</Uri>
-      <Sha>cdc5faeda066a83b084c96b8a455ad0a5e8713ab</Sha>
-      <SourceBuild RepoName="msbuild" ManagedOnly="true" />
+    <Dependency Name="Microsoft.DotNet.Cli.CommandLine" Version="1.0.0-preview.21310.2">
+      <Uri>https://github.com/dotnet/clicommandlineparser</Uri>
+      <Sha>3198bf5660cad3dab85f5475bf1fda9688146e3f</Sha>
+      <SourceBuild RepoName="clicommandlineparser" ManagedOnly="true" />
+    </Dependency>
+    <Dependency Name="System.CommandLine" Version="0.1.230801">
+      <Uri>https://github.com/dotnet/command-line-api</Uri>
+      <Sha>5e855e911de7c56fe28400c4500e888fe2a3da8e</Sha>
+      <SourceBuild RepoName="command-line-api" ManagedOnly="true" />
     </Dependency>
     <Dependency Name="Microsoft.Diagnostics.NETCore.Client" Version="5.0.0-preview.21325.1">
       <Uri>https://github.com/dotnet/diagnostics</Uri>
       <Sha>6f48c2ae749c29b687af0353e6c2a9590d7e3d22</Sha>
       <SourceBuild RepoName="diagnostics" ManagedOnly="true" />
+    </Dependency>
+    <Dependency Name="Microsoft.SourceBuild.Intermediate.fsharp" Version="5.0.3-beta.21352.5" CoherentParentDependency="Microsoft.NET.Sdk">
+      <Uri>https://github.com/dotnet/fsharp</Uri>
+      <Sha>3af67cd8ffd73b2dc443e1e24dc0cf28f7e1c608</Sha>
+      <SourceBuild RepoName="fsharp" ManagedOnly="true" />
+    </Dependency>
+    <Dependency Name="Microsoft.NET.ILLink.Tasks" Version="6.0.100-preview.6.21321.1" CoherentParentDependency="Microsoft.NET.Sdk">
+      <Uri>https://github.com/mono/linker</Uri>
+      <Sha>f2588193553431636b9853b0f87209fa395a72c5</Sha>
+      <SourceBuild RepoName="linker" ManagedOnly="true" />
+      <RepoName>linker</RepoName>
+    </Dependency>
+    <Dependency Name="Microsoft.Build" Version="17.0.0-preview-21330-06" CoherentParentDependency="Microsoft.NET.Sdk">
+      <Uri>https://github.com/dotnet/msbuild</Uri>
+      <Sha>cdc5faeda066a83b084c96b8a455ad0a5e8713ab</Sha>
+      <SourceBuild RepoName="msbuild" ManagedOnly="true" />
+    </Dependency>
+    <Dependency Name="Microsoft.Net.Compilers.Toolset" Version="4.0.0-2.21356.1" CoherentParentDependency="Microsoft.NET.Sdk">
+      <Uri>https://github.com/dotnet/roslyn</Uri>
+      <Sha>d16c8bd011951d9bd15809d9004276cf7baaa786</Sha>
+      <SourceBuild RepoName="roslyn" ManagedOnly="true" />
     </Dependency>
     <Dependency Name="Microsoft.DiaSymReader" Version="1.4.0-beta2-21315-01">
       <Uri>https://github.com/dotnet/symreader</Uri>
@@ -26,12 +52,6 @@
       <Sha>6898c1c70c2d14e9725ddab6e1ebe8084c4d7e27</Sha>
       <SourceBuild RepoName="test-templates" ManagedOnly="true" />
     </Dependency>
-    <Dependency Name="Microsoft.NET.ILLink.Tasks" Version="6.0.100-preview.6.21321.1" CoherentParentDependency="Microsoft.NET.Sdk">
-      <Uri>https://github.com/mono/linker</Uri>
-      <Sha>f2588193553431636b9853b0f87209fa395a72c5</Sha>
-      <SourceBuild RepoName="linker" ManagedOnly="true" />
-      <RepoName>linker</RepoName>
-    </Dependency>
     <Dependency Name="Microsoft.NET.Test.Sdk" Version="17.0.0-preview-20210629-04" CoherentParentDependency="Microsoft.NET.Sdk">
       <Uri>https://github.com/microsoft/vstest</Uri>
       <Sha>e078bbadaf65628c313e97041973db52a84491ef</Sha>
@@ -41,21 +61,6 @@
       <Uri>https://github.com/dotnet/xdt</Uri>
       <Sha>6a46e7c886cdf499ba3433f665ab417be814135e</Sha>
       <SourceBuild RepoName="xdt" ManagedOnly="true" />
-    </Dependency>
-    <Dependency Name="Microsoft.DotNet.Cli.CommandLine" Version="1.0.0-preview.21310.2">
-      <Uri>https://github.com/dotnet/clicommandlineparser</Uri>
-      <Sha>3198bf5660cad3dab85f5475bf1fda9688146e3f</Sha>
-      <SourceBuild RepoName="clicommandlineparser" ManagedOnly="true" />
-    </Dependency>
-    <Dependency Name="Microsoft.SourceBuild.Intermediate.fsharp" Version="5.0.3-beta.21352.5" CoherentParentDependency="Microsoft.NET.Sdk">
-      <Uri>https://github.com/dotnet/fsharp</Uri>
-      <Sha>3af67cd8ffd73b2dc443e1e24dc0cf28f7e1c608</Sha>
-      <SourceBuild RepoName="fsharp" ManagedOnly="true" />
-    </Dependency>
-    <Dependency Name="System.CommandLine" Version="0.1.230801">
-      <Uri>https://github.com/dotnet/command-line-api</Uri>
-      <Sha>5e855e911de7c56fe28400c4500e888fe2a3da8e</Sha>
-      <SourceBuild RepoName="command-line-api" ManagedOnly="true" />
     </Dependency>
   </ProductDependencies>
   <ToolsetDependencies>
