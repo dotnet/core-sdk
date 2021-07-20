@@ -84,5 +84,10 @@
       <Sha>71c811561ad4dcf46825a5077fbcc668ab74754f</Sha>
       <SourceBuild RepoName="xliff-tasks" ManagedOnly="true" />
     </Dependency>
+    <Dependency Name="VS.Redist.Common.NetCore.SharedFramework.x64.6.0" Version="6.0.0-preview.7.21356.2" CoherentParentDependency="Microsoft.NET.Sdk">
+      <Uri>https://github.com/dotnet/runtime</Uri>
+      <Sha>566b53a66b0afa573f0dae33d07c8de9685aa5c8</Sha>
+      <SourceBuild RepoName="runtime" ManagedOnly="true" />
+    </Dependency>
   </ToolsetDependencies>
 </Dependencies>

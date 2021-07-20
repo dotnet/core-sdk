@@ -5,7 +5,7 @@ jobs:
   displayName: Source-Build Create Tarball
   pool:
     vmImage: ubuntu-20.04
-  container: mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-32-20210222183556-031e7d2
+  container: mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-33-20210222183538-031e7d2
   workspace:
     clean: all
 
