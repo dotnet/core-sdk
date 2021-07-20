@@ -58,6 +58,18 @@ With development builds, internal NuGet feeds are necessary for some scenarios (
 ```
 **Note:** that you may need to add the dotnet5 feed for a short period of time while .NET transitions to .NET 6
 
+**For .NET 6 Optional workloads**
+
+We strongly recommend using `--skip-manifest-update` with `dotnet workload install` as otherwise you could pick up a random build of various workloads as we'll automatically update to the newest one available on the feed.
+
+```
+<configuration>
+  <packageSources>
+    <add key="maui" value="https://pkgs.dev.azure.com/azure-public/vside/_packaging/xamarin-impl/nuget/v3/index.json" />
+  </packageSources>
+</configuration>
+```
+
 **For .NET 5 builds**
 
 ```
